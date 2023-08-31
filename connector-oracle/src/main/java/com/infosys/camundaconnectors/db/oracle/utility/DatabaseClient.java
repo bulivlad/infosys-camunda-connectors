@@ -22,6 +22,7 @@ public class DatabaseClient {
       throws SQLException {
     String dbURL =
         "jdbc:oracle:thin:@"
+            + databaseConnection.getHostPrefix()
             + databaseConnection.getHost().strip()
             + ":"
             + databaseConnection.getPort().strip();
