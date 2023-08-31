@@ -28,7 +28,7 @@ public class DeleteDataService implements OracleDBRequestData {
   private String databaseName;
   @NotBlank
   private String tableName;
-  @NotBlank
+  @NotEmpty
   private Map<String, Object> filters;
   private List<Map<String, String>> orderBy;
   private Integer limit;

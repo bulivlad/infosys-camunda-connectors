@@ -1,0 +1,22 @@
+name: Build the packages
+on: 
+  push:
+    branches:
+      - "!main"
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '19'
+          distribution: 'temurin'
+      - name: Run mvn install
+        run: cd connector-oracle && mvn --batch-mode install
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
