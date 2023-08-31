@@ -19,13 +19,18 @@ import java.util.Map;
 import java.util.Objects;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+
+import io.camunda.connector.api.annotation.Secret;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class UpdateDataService implements OracleDBRequestData {
   private static final Logger LOGGER = LoggerFactory.getLogger(UpdateDataService.class);
-  @NotBlank private String databaseName;
-  @NotBlank private String tableName;
+  @NotBlank
+  @Secret
+  private String databaseName;
+  @NotBlank
+  private String tableName;
 
   @NotEmpty(message = "updateMap can't be null or empty")
   private Map<String, Object> updateMap;
