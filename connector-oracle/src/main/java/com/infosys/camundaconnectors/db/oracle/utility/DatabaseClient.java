@@ -34,6 +34,7 @@ public class DatabaseClient {
       throws SQLException {
     Connection conn;
     try {
+      LOGGER.trace("Connecting to DB URL='{}'", dbURL);
       Class.forName("oracle.jdbc.driver.OracleDriver");
       conn =
           DriverManager.getConnection(

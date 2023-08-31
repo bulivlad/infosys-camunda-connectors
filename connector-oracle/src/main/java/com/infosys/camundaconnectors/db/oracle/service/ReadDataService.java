@@ -23,7 +23,8 @@ public class ReadDataService implements OracleDBRequestData {
   @NotBlank
   @Secret
   private String databaseName;
-  @NotBlank private String tableName;
+  @NotBlank
+  private String tableName;
   private List<String> columnNames;
   private Map<String, Object> filters;
   private List<Map<String, String>> orderBy;

@@ -16,14 +16,20 @@ import java.sql.Statement;
 import java.util.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+
+import io.camunda.connector.api.annotation.Secret;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class DeleteDataService implements OracleDBRequestData {
   private static final Logger LOGGER = LoggerFactory.getLogger(DeleteDataService.class);
-  @NotBlank private String databaseName;
-  @NotBlank private String tableName;
-  @NotEmpty private Map<String, Object> filters;
+  @NotBlank
+  @Secret
+  private String databaseName;
+  @NotBlank
+  private String tableName;
+  @NotBlank
+  private Map<String, Object> filters;
   private List<Map<String, String>> orderBy;
   private Integer limit;
 

@@ -16,14 +16,20 @@ import java.util.*;
 import java.util.stream.Collectors;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+
+import io.camunda.connector.api.annotation.Secret;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class InsertDataService implements OracleDBRequestData {
   private static final Logger LOGGER = LoggerFactory.getLogger(InsertDataService.class);
-  @NotBlank private String databaseName;
-  @NotBlank private String tableName;
-  @NotEmpty private List<Map<String, Object>> dataToInsert;
+  @NotBlank
+  @Secret
+  private String databaseName;
+  @NotBlank
+  private String tableName;
+  @NotEmpty
+  private List<Map<String, Object>> dataToInsert;
 
   @Override
   public OracleDBResponse invoke(Connection connection) throws SQLException {

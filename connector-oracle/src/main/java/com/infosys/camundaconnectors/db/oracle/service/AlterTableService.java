@@ -14,14 +14,20 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
 import javax.validation.constraints.NotBlank;
+
+import io.camunda.connector.api.annotation.Secret;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class AlterTableService implements OracleDBRequestData {
   private static final Logger LOGGER = LoggerFactory.getLogger(AlterTableService.class);
-  @NotBlank private String databaseName;
-  @NotBlank private String tableName;
-  @NotBlank private String method;
+  @NotBlank
+  @Secret
+  private String databaseName;
+  @NotBlank
+  private String tableName;
+  @NotBlank
+  private String method;
   private List<Map<String, String>> constraintDetails;
   private String newTableName;
   private Map<String, String> newColumnDetail;
