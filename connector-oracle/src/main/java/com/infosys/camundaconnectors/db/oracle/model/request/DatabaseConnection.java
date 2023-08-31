@@ -69,6 +69,10 @@ public class DatabaseConnection {
     return "service-name".equals(this.connectionType) ? "/" : ":";
   }
 
+  public String getHostPrefix() {
+    return "service-name".equals(this.connectionType) ? "//" : "";
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
